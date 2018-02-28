@@ -45,8 +45,8 @@ from scipy.sparse import dok_matrix, block_diag
 
 from qutip import Qobj, spre, spost, tensor, identity
 from qutip import sigmax, sigmay, sigmaz, sigmap, sigmam
-from qutip.cy.dicke import Dicke as _Dicke
-from qutip.cy.dicke import (jmm1_dictionary, _num_dicke_states,
+from qutip.cy.piqs import Dicke as _Dicke
+from qutip.cy.piqs import (jmm1_dictionary, _num_dicke_states,
                             _num_dicke_ladders)
 
 
@@ -112,7 +112,7 @@ def num_tls(nds):
     return int(N)
 
 
-class Piqs(object):
+class Dicke(object):
     """
     The PIQS class which builds the Lindbladian and Liouvillian matrix
 

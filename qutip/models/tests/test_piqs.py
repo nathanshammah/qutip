@@ -37,16 +37,16 @@ import numpy as np
 from numpy.testing import (assert_, run_module_suite, assert_raises,
                            assert_array_equal, assert_array_almost_equal,
                            assert_almost_equal, assert_equal)
-from qutip.cy.dicke import (_get_blocks, _j_min, _j_vals, m_vals,
+
+from qutip import Qobj
+from qutip.cy.piqs import (_get_blocks, _j_min, _j_vals, m_vals,
                             _num_dicke_states, _num_dicke_ladders,
                             get_index, jmm1_dictionary)
-from qutip.cy.dicke import Dicke as _Dicke
-from qutip.models.dicke import (num_tls, Piqs)
-from qutip import Qobj
-from qutip.models.dicke import *
+from qutip.cy.piqs import Dicke as _Dicke
+from qutip.models.piqs import *
 
 
-class TestPiqs:
+class TestDicke:
     """
     A test class for the Permutational Invariant Quantum Solver
     """
@@ -268,7 +268,7 @@ class TestPiqs:
         gD = 0.1
         gP = 0.1
 
-        system = Piqs(N=N, emission=gE, pumping=gP, dephasing=gD,
+        system = Dicke(N=N, emission=gE, pumping=gP, dephasing=gD,
                       collective_emission=gCE, collective_pumping=gCP,
                       collective_dephasing=gCD)
 
@@ -292,7 +292,7 @@ class TestPiqs:
         gD = 0.1
         gP = 0.1
 
-        system = Piqs(N=N, emission=gE, pumping=gP, dephasing=gD,
+        system = Dicke(N=N, emission=gE, pumping=gP, dephasing=gD,
                       collective_emission=gCE, collective_pumping=gCP,
                       collective_dephasing=gCD)
 
@@ -707,7 +707,7 @@ class TestPiqs:
         true_liouvillian.dims = [[[2], [2]], [[2], [2]]]
 
         N = 1
-        test_piqs = Piqs(hamiltonian=sigmaz() + sigmax(), N=N,
+        test_piqs = Dicke(hamiltonian=sigmaz() + sigmax(), N=N,
                          pumping=1, collective_pumping=2, emission=1,
                          collective_emission=3, dephasing=0.1)
 
