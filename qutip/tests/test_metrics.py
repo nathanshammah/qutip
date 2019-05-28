@@ -316,20 +316,15 @@ def test_hellinger_monotonicity():
 
 
 def rand_super():
-    h_5 = rand_herm(5)
-    return propagator(h_5, scipy.rand(), [
-        create(5), destroy(5), jmat(2, 'z')
-    ])
-
-
-def test_average_gate_fidelity():
     """
-    Metrics: Check avg gate fidelities for random
-    maps (equal to 1 for id maps).
+    Generate the propagator relative to a random circuit.
     """
-    for dims in range(2, 5):
-        assert_(abs(average_gate_fidelity(identity(dims)) - 1) <= 1e-12)
-    assert_(0 <= average_gate_fidelity(rand_super()) <= 1)
+    h_4 = rand_herm(4)
+    circuit_list = [create(4), destroy(4), jmat(1.5, 'z')]
+    rndm_num = scipy.rand()
+    propagated_super = propagator(h_4, rndm_num, circuit_list)
+
+    return propagated_super
 
 def test_average_gate_fidelity_target():
     """
@@ -547,6 +542,15 @@ def test_dnorm_cptp():
     for dim in (2, 3):
         for _ in range(10):
             yield case, rand_super_bcsz(dim)
+
+def test_average_gate_fidelity():
+    """
+    Metrics: Check avg gate fidelities for random
+    maps (equal to 1 for id maps).
+    """
+    for dims in range(2, 5):
+        assert_(abs(average_gate_fidelity(identity(dims)) - 1) <= 1e-12)
+    assert_(0 <= average_gate_fidelity(rand_super()) <= 1)
 
 
 if __name__ == "__main__":
