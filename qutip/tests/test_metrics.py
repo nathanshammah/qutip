@@ -262,7 +262,7 @@ def test_hellinger_pure():
     Metrics: Hellinger dist.: check against a simple
     expression which applies to pure states
     """
-    for _ in range(10):
+    for i in range(10):
         ket1 = rand_ket(25, 0.25)
         ket2 = rand_ket(25, 0.25)
         hellinger = hellinger_dist(ket1, ket2)
@@ -276,7 +276,7 @@ def test_hellinger_inequality():
     Metrics: Hellinger dist.: check whether Hellinger
     distance is indeed larger than Bures distance
     """
-    for _ in range(10):
+    for i in range(10):
         rho1 = rand_dm(25, 0.25)
         rho2 = rand_dm(25, 0.25)
         hellinger = hellinger_dist(rho1, rho2)
@@ -298,7 +298,7 @@ def test_hellinger_monotonicity():
     hellinger_dist(rhoA, sigmaA)
     with equality iff sigmaB=rhoB
     """
-    for _ in range(10):
+    for i in range(10):
         rhoA = rand_dm(8, 0.5)
         sigmaA = rand_dm(8, 0.5)
         rhoB = rand_dm(8, 0.5)
