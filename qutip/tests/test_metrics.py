@@ -288,15 +288,9 @@ def test_hellinger_inequality():
         bures = bures_dist(ket1, ket2)
         assert_(hellinger >= bures)
 
-
 def test_hellinger_monotonicity():
     """
     Metrics: Hellinger dist.: check monotonicity
-    w.r.t. tensor product, see. Eq. (45) in
-    arXiv:1611.03449v2:
-    hellinger_dist(rhoA \otimes rhoB, sigmaA \otimes sigmaB)>=
-    hellinger_dist(rhoA, sigmaA)
-    with equality iff sigmaB=rhoB
     """
     for i in range(10):
         rhoA = rand_dm(8, 0.5)
@@ -310,8 +304,7 @@ def test_hellinger_monotonicity():
         assert_(hell_tensor >= hellA)
         #equality iff sigmaB=rhoB
         rhoB = sigmaB
-        hell_tensor = hellinger_dist(tensor(rhoA, rhoB),
-                                     tensor(sigmaA, sigmaB))
+        hell_tensor = hellinger_dist(tensor(rhoA, rhoB),tensor(sigmaA, sigmaB))
         assert_almost_equal(hell_tensor, hellA)
 
 
