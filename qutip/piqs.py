@@ -339,7 +339,8 @@ def purity_dicke(rho):
         The purity of the quantum state.
         It's 1 for pure states, 0<=purity<1 for mixed states.
     """
-    f = lambda x: x * x
+    def f(x):
+        return x * x
     return dicke_function_trace(f, rho)
 
 
