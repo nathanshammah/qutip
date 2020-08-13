@@ -57,7 +57,7 @@ For instructions on how to install QuTiP, see:
 
 Run notebooks online
 -----
-A selection of demonstration notebooks is available at [http://qutip.org/tutorials.html](http://qutip.org/tutorials.html) and can be run online here: [![Binder](http://img.shields.io/badge/launch-binder-ff69b4.svg?style=flat)](http://mybinder.org/repo/qutip/qutip-notebooks/binder)
+A selection of demonstration notebooks is available at [http://qutip.org/tutorials.html](http://qutip.org/tutorials.html) and can be run online here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qutip/qutip-notebooks/master?filepath=index.ipynb)
 
 or may be found at: [github.com/qutip/qutip-notebooks](http://github.com/qutip/qutip-notebooks).
 
@@ -86,7 +86,7 @@ section in the documentation.
 
 Note that all contributions must adhere to the [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/).
 
-For more information, including technical advice, please see [Contributing to QuTiP development](https://github.com/qutip/qutip-doc/blob/master/qutip_dev_contrib.md).
+For more information, including technical advice, please see [Contributing to QuTiP development](https://github.com/qutip/qutip-doc/blob/master/CONTRIBUTING.md).
 
 Changelog
 ---------
