@@ -394,7 +394,7 @@ class QubitCircuit:
     ...     mat = np.array([[1.,   0],
     ...                     [0., 1.j]])
     ...     return Qobj(mat, dims=[[2], [2]])
-    >>> qubit_circuit.QubitCircuit(2, user_gates={"T":user_gate})
+    >>> qubit_circuit = QubitCircuit(2, user_gates={"T":user_gate})
     >>> qubit_circuit.add_gate("T", targets=[0])
     """
 
@@ -1276,6 +1276,10 @@ class QubitCircuit:
                                  % basis)
 
         for gate in self.gates:
+            if gate.name in ("X", "Y", "Z"):
+                qc_temp.gates.append(Gate("GLOBALPHASE", arg_value=np.pi/2))
+                gate = Gate(
+                    "R" + gate.name, targets=gate.targets, arg_value=np.pi)
             try:
                 self._resolve_to_universal(gate, temp_resolved,
                                            basis_1q, basis_2q)
